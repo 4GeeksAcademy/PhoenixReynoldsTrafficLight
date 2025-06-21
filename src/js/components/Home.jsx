@@ -1,26 +1,34 @@
-import React from "react";
-
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+import React, { useState } from "react";
 
 //create your first component
 const Home = () => {
-	return (
-		<div className="text-center">
-            
+	const [activeColor, setActiveColor] = useState(null);
+	//const c = activeColor === green ? "0" + seconds : seconds;
 
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+	return (
+		<div className="text-center vw-100 my-5">
+			<div
+				style={{ width: "100px", height: "260px" }}
+				className="bg-dark rounded-3 container-fluid"
+			>
+				<div className="py-2">
+					<div
+						style={{ width: "75px", height: "75px", boxShadow: activeColor === "red" ?"0px 0px 50px 10px #FFFF33" : ""}}
+						className="bg-danger rounded-circle"
+						onClick={() => setActiveColor("red")}
+					></div>
+					<div
+						style={{ width: "75px", height: "75px", boxShadow: activeColor === "yellow" ?"0px 0px 50px 10px #FFFF33" : ""}}
+						className="bg-warning rounded-circle mt-2"
+						onClick={() => setActiveColor("yellow")}
+					></div>
+					<div
+						style={{ width: "75px", height: "75px", boxShadow: activeColor === "green" ?"0px 0px 50px 10px #FFFF33" : ""}}
+						className="bg-success rounded-circle mt-2"
+						onClick={() => setActiveColor("green")}
+					></div>
+				</div>
+			</div>
 		</div>
 	);
 };
